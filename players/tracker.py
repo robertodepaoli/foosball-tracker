@@ -21,7 +21,7 @@ class PitTracker():
         self.draw_pit(figure)
         self.zone.zones(self.frame)
         self.pit_update(figure)
-        #self.draw_text()
+        self.draw_text()
         return self.frame
 
 

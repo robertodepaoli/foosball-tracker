@@ -1,6 +1,7 @@
 # **Foosball Tracker** 🎱
 
 Un progetto di **Computer Vision** basato su Python e OpenCV per il tracking degli elementi di un biliardino (*calcio balilla*). Il software rileva e traccia il movimento della pallina e dei giocatori, fornendo funzionalità avanzate come filtri configurabili, visualizzazione delle traiettorie e step di elaborazione.
+Report completo: [Foosball Tracker Report](./de-paoli-roberto-foosball_tracker-report.pdf).
 
 ---
 
@@ -16,7 +17,7 @@ Un progetto di **Computer Vision** basato su Python e OpenCV per il tracking deg
 
 ## **Caratteristiche principali**
 
-- 🎯 **Tracking della pallina**: Rilevamento accurato con Hough Transform e filtri di contorni.
+- 🎯 **Tracking della pallina**: Rilevamento della pallina tramite un approccio combinato.
 - 🧩 **Pipeline modulare**: Gestione degli step di elaborazione tramite filtri configurabili.
 - 🖼️ **Visualizzazione in tempo reale**: 
   - Step intermedi.
@@ -87,6 +88,7 @@ foosball-tracker/
 │
 ├── .gitignore                
 ├── config.json               # Configurazione dei parametri dei filtri
+├── de-paoli... .pdf          # Report completo del progetto
 ├── main.py                   # Script principale
 ├── README.md                 # Documentazione del progetto
 └── requirements.txt          
@@ -117,37 +119,12 @@ I parametri per i filtri di elaborazione e altre impostazioni sono gestiti trami
 ```
 ---
 
-## **Materiale Video Fornito**
-
-Il repository include una serie di video di esempio utili per testare il progetto e per sperimentare con i parametri di configurazione. I video sono archiviati nella cartella **`videos/`** e coprono diverse situazioni comuni di gioco.
-
-### **Elenco dei video**
-
-1. `match_example.mp4`  
-   - **Descrizione:** Una partita simulata di biliardino con movimenti standard.  
-   - **Scopo:** Testare il tracking della pallina in un contesto realistico.  
-
-2. `high_speed_ball.mp4`  
-   - **Descrizione:** Movimenti veloci della pallina con scatti improvvisi.  
-   - **Scopo:** Valutare la capacità del sistema di seguire traiettorie rapide e imprevedibili.  
-
-3. `occlusion_test.mp4`  
-   - **Descrizione:** Situazioni in cui la pallina è parzialmente nascosta dai giocatori.  
-   - **Scopo:** Testare la robustezza del sistema in presenza di occlusioni.
-
-4. `lighting_variations.mp4`  
-   - **Descrizione:** Cambiamenti di illuminazione durante il gioco.  
-   - **Scopo:** Analizzare il comportamento del sistema in condizioni di luce variabili.
-
-5. `noisy_background.mp4`  
-   - **Descrizione:** Partita giocata su un biliardino con un fondo complesso e colori simili alla pallina.  
-   - **Scopo:** Testare i filtri e la capacità di distinguere la pallina dallo sfondo.
 
 ### **Utilizzo**
 - Copia i video di esempio nella directory desiderata o lasciali nella cartella **`videos/`**.  
 - Modifica il file **`main.py`** per specificare il percorso del video da utilizzare per i test:
 ```py
-stream = Video(cap=cv2.VideoCapture(r'./biliardino.mp4'))
+stream = Video(cap=cv2.VideoCapture(r'./videos/esempio-1.mp4'))
 ```
 
 ---
@@ -165,4 +142,10 @@ python main.py
   - Eventuali step intermedi configurati.
 
 ### **Personalizzazione**
-Puoi abilitare/disabilitare la visualizzazione degli step intermedi modificando la pipeline nella classe `BallTracker`.
+Puoi abilitare/disabilitare la visualizzazione degli step intermedi modificando la pipeline nella classe BallTracker. Per visualizzare questi passaggi, è necessario sostituire la classe Filters con la classe VisualFilters e decommentare le righe corrispondenti in cui viene attivato visualize_steps. Questo permetterà di visualizzare ogni fase del processo di rilevamento.
+
+Inoltre, nella funzione detect di BallTracker, è possibile visualizzare le coordinate stimate della pallina abilitando la variabile draw_point_on_frame. Quando attivata, questa opzione disegnerà un punto rosso sul frame per ogni posizione stimata della pallina, offrendo una visione dettagliata del movimento.
+
+Per visualizzare anche il tracking dei giocatori, bisogna decommentare la riga pit_rosso/blu_tracker.detect nel file main.py. Questo avvierà il rilevamento e il tracciamento dei giocatori tramite la combinazione di filtri e algoritmi preconfigurati.
+
+Tuttavia, è fortemente sconsigliato visualizzare contemporaneamente sia il tracking della pallina che quello dei giocatori, per ottenere una visualizzazione chiara e priva di conflitti.

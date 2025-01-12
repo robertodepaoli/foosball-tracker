@@ -7,8 +7,8 @@ import cv2
 
 
 
-stream = Video(cap=cv2.VideoCapture(r'./biliardino.mp4'))
-stream.skip(secondi=60)
+stream = Video(cap=cv2.VideoCapture(r'./videos/esempio-1.mp4'))
+#stream.skip(secondi=60)
 stream.start_stream()
 
 stabilizer = Stabilizer(lite = True)
