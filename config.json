@@ -1,0 +1,42 @@
+{
+    "FILTERS":{
+        "white_mask": {
+            "lower_white": [0,0,0],
+            "upper_white": [50,50,255]
+        },
+        "median_blur": {
+            "kernel_size": 15
+        },
+        "threshold": {
+            "threshold_value": 75
+        },
+        "gaussian_blur": {
+            "kernel_size": 5,
+            "sigma": 1
+        },
+        "blu_filter": {
+            "lower_blu": [100,50,50],
+            "upper_blu": [130,255,255]
+        },
+        "red_filter": {
+            "lower_red": [0,100,100],
+            "upper_red": [10,255,255]
+        },
+        "brown_filter": {
+            "lower_brown": [10,50,180],
+            "upper_brown": [20,255,255]
+        }
+    },
+    "HOUGH":{ 
+        "dp": 1,
+        "minDist": 1,
+        "param1": 120,
+        "param2": 10,
+        "minRadius": 10,
+        "maxRadius": 100
+    }, 
+    "CONTOURS":{
+        "area_min":0,
+        "area_max":1200
+    }
+}
