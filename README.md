@@ -10,8 +10,7 @@ Report completo: [Foosball Tracker Report](./de-paoli-roberto-foosball_tracker-r
 2. [Installazione](#installazione)
 3. [Struttura del progetto](#struttura-del-progetto)
 4. [Configurazione](#configurazione)
-5. [Materiale Video Fornito](#materiale-video-fornito)
-6. [Esempio di utilizzo](#esempio-di-utilizzo)
+5. [Esempio di utilizzo](#esempio-di-utilizzo)
 
 ---
 
